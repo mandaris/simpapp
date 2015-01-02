@@ -9,10 +9,20 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *InputTextField;
+@property (weak, nonatomic) IBOutlet UIButton *SimpleAction;
+@property (weak, nonatomic) IBOutlet UILabel *simpleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thisLabel;
 
 @end
 
 @implementation ViewController
+- (IBAction)changeLabel:(id)sender {
+    // Change the label
+    NSString *inputText = [[self InputTextField] text];
+    NSString *newMessage = [NSString stringWithFormat:@"Hello, %@", inputText];
+    [[self thisLabel] setText:newMessage];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
